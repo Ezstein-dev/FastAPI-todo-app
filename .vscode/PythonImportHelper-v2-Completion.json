@@ -1,0 +1,115 @@
+[
+    {
+        "label": "List",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "FastAPI",
+        "importPath": "fastapi",
+        "description": "fastapi",
+        "isExtraImport": true,
+        "detail": "fastapi",
+        "documentation": {}
+    },
+    {
+        "label": "HTTPException",
+        "importPath": "fastapi",
+        "description": "fastapi",
+        "isExtraImport": true,
+        "detail": "fastapi",
+        "documentation": {}
+    },
+    {
+        "label": "BaseModel",
+        "importPath": "pydantic",
+        "description": "pydantic",
+        "isExtraImport": true,
+        "detail": "pydantic",
+        "documentation": {}
+    },
+    {
+        "label": "root",
+        "kind": 2,
+        "importPath": "app.main",
+        "description": "app.main",
+        "peekOfCode": "def root():\n    return {\"hello\": \"world\"}\n@app.post(\"/todo\")\ndef create_todo(todo: Todo):\n    store_todo.append(todo)\n    return {\"message\": \"This is my Todo\\n\", **todo.dict()}\n@app.get(\"/todo\", response_model=List[Todo])\ndef get_all_todo():\n    return store_todo\n@app.get(\"/todo/{id}\")",
+        "detail": "app.main",
+        "documentation": {}
+    },
+    {
+        "label": "create_todo",
+        "kind": 2,
+        "importPath": "app.main",
+        "description": "app.main",
+        "peekOfCode": "def create_todo(todo: Todo):\n    store_todo.append(todo)\n    return {\"message\": \"This is my Todo\\n\", **todo.dict()}\n@app.get(\"/todo\", response_model=List[Todo])\ndef get_all_todo():\n    return store_todo\n@app.get(\"/todo/{id}\")\ndef get_one_todo(id: int):\n    ident = (id-1)\n    try:",
+        "detail": "app.main",
+        "documentation": {}
+    },
+    {
+        "label": "get_all_todo",
+        "kind": 2,
+        "importPath": "app.main",
+        "description": "app.main",
+        "peekOfCode": "def get_all_todo():\n    return store_todo\n@app.get(\"/todo/{id}\")\ndef get_one_todo(id: int):\n    ident = (id-1)\n    try:\n        return store_todo[ident]\n    except:\n        raise HTTPException(status_code=404, detail=\"id of Todo not found\")\n@app.put(\"/todo/{id}\")",
+        "detail": "app.main",
+        "documentation": {}
+    },
+    {
+        "label": "get_one_todo",
+        "kind": 2,
+        "importPath": "app.main",
+        "description": "app.main",
+        "peekOfCode": "def get_one_todo(id: int):\n    ident = (id-1)\n    try:\n        return store_todo[ident]\n    except:\n        raise HTTPException(status_code=404, detail=\"id of Todo not found\")\n@app.put(\"/todo/{id}\")\ndef update_todo(id: int, todo: Todo):\n    ident = (id-1)\n    try:",
+        "detail": "app.main",
+        "documentation": {}
+    },
+    {
+        "label": "update_todo",
+        "kind": 2,
+        "importPath": "app.main",
+        "description": "app.main",
+        "peekOfCode": "def update_todo(id: int, todo: Todo):\n    ident = (id-1)\n    try:\n        store_todo[id] = todo\n        return store_todo[ident]\n    except:\n        raise HTTPException(status_code=404, detail=\"id of Todo not found\")\n@app.delete(\"/todo/{id}\")\ndef delete_todo(id: int):\n    ident = (id-1)",
+        "detail": "app.main",
+        "documentation": {}
+    },
+    {
+        "label": "delete_todo",
+        "kind": 2,
+        "importPath": "app.main",
+        "description": "app.main",
+        "peekOfCode": "def delete_todo(id: int):\n    ident = (id-1)\n    try:\n        todo = store_todo[ident]\n        store_todo.pop(ident)\n        return todo\n    except:\n        raise HTTPException(status_code=404, detail=\"id of Todo not found\")",
+        "detail": "app.main",
+        "documentation": {}
+    },
+    {
+        "label": "app",
+        "kind": 5,
+        "importPath": "app.main",
+        "description": "app.main",
+        "peekOfCode": "app = FastAPI(\n    title = \"Todo API\"\n)\nstore_todo = []\n@app.get(\"/\")\ndef root():\n    return {\"hello\": \"world\"}\n@app.post(\"/todo\")\ndef create_todo(todo: Todo):\n    store_todo.append(todo)",
+        "detail": "app.main",
+        "documentation": {}
+    },
+    {
+        "label": "store_todo",
+        "kind": 5,
+        "importPath": "app.main",
+        "description": "app.main",
+        "peekOfCode": "store_todo = []\n@app.get(\"/\")\ndef root():\n    return {\"hello\": \"world\"}\n@app.post(\"/todo\")\ndef create_todo(todo: Todo):\n    store_todo.append(todo)\n    return {\"message\": \"This is my Todo\\n\", **todo.dict()}\n@app.get(\"/todo\", response_model=List[Todo])\ndef get_all_todo():",
+        "detail": "app.main",
+        "documentation": {}
+    },
+    {
+        "label": "Todo",
+        "kind": 6,
+        "importPath": "app.models",
+        "description": "app.models",
+        "peekOfCode": "class Todo(BaseModel):\n    name: str\n    due_date: str\n    description: str",
+        "detail": "app.models",
+        "documentation": {}
+    }
+]
